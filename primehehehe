@@ -1,0 +1,40 @@
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
+
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "PasswordGui"
+screenGui.Parent = PlayerGui
+
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 300, 0, 150)
+frame.Position = UDim2.new(0.5, -150, 0.5, -75)
+frame.BackgroundColor3 = Color3.fromRGB(25,25,25)
+frame.Parent = screenGui
+
+local textBox = Instance.new("TextBox")
+textBox.Size = UDim2.new(0, 200, 0, 40)
+textBox.Position = UDim2.new(0.5, -100, 0.3, 0)
+textBox.PlaceholderText = "Nhập mật khẩu..."
+textBox.ClearTextOnFocus = true
+textBox.Text = ""
+textBox.Parent = frame
+
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(0, 100, 0, 40)
+button.Position = UDim2.new(0.5, -50, 0.65, 0)
+button.Text = "Xác nhận"
+button.Parent = frame
+
+local correctPassword = "primeno123"
+
+button.MouseButton1Click:Connect(function()
+    if textBox.Text == correctPassword then
+        screenGui:Destroy() -- ẩn GUI sau khi nhập đúng
+    
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/vesaulotxac9-collab/Okngon/refs/heads/main/Primeno"))()
+    else
+        textBox.Text = ""
+        textBox.PlaceholderText = "Sai mật khẩu!"
+    end
+end)
