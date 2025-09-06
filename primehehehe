@@ -26,7 +26,7 @@ button.Position = UDim2.new(0.5, -50, 0.65, 0)
 button.Text = "Xác nhận"
 button.Parent = frame
 
-local correctPassword = "primeno123"
+local correctPassword = "primedzvl"
 
 button.MouseButton1Click:Connect(function()
     if textBox.Text == correctPassword then
